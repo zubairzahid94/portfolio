@@ -8,6 +8,7 @@ import Display from "@/components/sections/display"
 import ShowcaseSection from "@/components/sections/showcase-section"
 import PortfolioPage from "@/components/sections/PortfolioPage"
 import { StickyScrollRevealDemo } from "@/components/sections/Sections"
+import PortfolioShowcasePage from "@/components/sections/VideoDisplay"
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
+        <PortfolioShowcasePage />
         <Display />
         <ShowcaseSection />
         <PortfolioPage />
