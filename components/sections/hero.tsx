@@ -6,6 +6,7 @@ import { Canvas, useFrame } from "@react-three/fiber"
 import { Float, Environment, useGLTF, Text3D, Center } from "@react-three/drei"
 import { Suspense, useRef, useState } from "react"
 import type * as THREE from "three"
+import SplitText from "../SplitText"
 
 function DuckModel(props: any) {
   const { scene } = useGLTF("/assets/3d/Duck.glb")
@@ -211,6 +212,7 @@ export default function Hero() {
 
       {/* Main Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+
         <div className="space-y-8">
           <div className="space-y-4">
             <h1 className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tight leading-none">

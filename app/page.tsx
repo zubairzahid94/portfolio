@@ -18,7 +18,7 @@ export default function Home() {
         <Display />
         <ShowcaseSection />
         <PortfolioPage />
-        <StickyScrollRevealDemo />
+        {/* <StickyScrollRevealDemo /> */}
         <Projects />
         <Services />
         <Contact />
