@@ -4,6 +4,8 @@
 import { motion } from "framer-motion"
 import Scroll3DTitle from "../videolevitating/scroll-3d-title"
 import FullBleedVideo from "../videolevitating/full-bleed-video"
+import { Button } from "../ui/button"
+import Link from "next/link"
 
 const SECTIONS = [
     {
@@ -53,8 +55,8 @@ export default function PortfolioShowcasePage() {
                                 {/* Text Half */}
                                 <motion.div
                                     className={`flex items-center justify-center w-full lg:w-[42%]
-                    ${isRightText ? "lg:order-2" : "lg:order-1"}
-                  `}
+                        ${isRightText ? "lg:order-2" : "lg:order-1"}
+                    `}
                                     initial={{ opacity: 0, x: isRightText ? 60 : -60 }}
                                     whileInView={{ opacity: 1, x: 0 }}
                                     viewport={{ once: true, amount: 0.3 }}
@@ -72,8 +74,8 @@ export default function PortfolioShowcasePage() {
 
                                 <motion.div
                                     className={`relative w-full lg:w-[58%] h-[50vh] sm:h-[60vh] lg:h-[75vh] xl:h-[80vh]
-                    ${isRightText ? "lg:order-1" : "lg:order-2"}
-                  `}
+                        ${isRightText ? "lg:order-1" : "lg:order-2"}
+                    `}
                                     initial={{ opacity: 0, x: isRightText ? -60 : 60 }}
                                     whileInView={{ opacity: 1, x: 0 }}
                                     viewport={{ once: true, amount: 0.3 }}
@@ -88,9 +90,29 @@ export default function PortfolioShowcasePage() {
                         {i < SECTIONS.length - 1 ? (
                             <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent via-black/50 to-black" />
                         ) : null}
+
+
                     </section>
                 )
             })}
+
+            <div className="flex items-center justify-center" style={{ perspective: 2000 }}>
+                <Link href="/projects">
+                    <Button
+                        variant="outline"
+                        className="relative border-cyan-400 text-cyan-300 hover:bg-cyan-400/10 hover:text-cyan-100 transition-all duration-300 px-8 py-6 text-lg font-medium tracking-wide rounded-full overflow-hidden group"
+                    >
+                        <span className="relative z-10">View All Our Works</span>
+                        {/* subtle glow animation */}
+                        <motion.span
+                            className="absolute inset-0 bg-cyan-400/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+                            animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.4, 0.2] }}
+                            transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
+                        />
+                    </Button>
+                </Link>
+            </div>
+
         </main>
     )
 }
