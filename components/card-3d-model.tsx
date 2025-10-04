@@ -73,7 +73,6 @@ function Model({
 
 export function Card3DModel({ glbPath, rotationX, rotationY, captionText, videoSrc }: Card3DModelProps) {
     const [isLoaded, setIsLoaded] = useState(false)
-    console.log("glb path", glbPath)
     useEffect(() => {
         // Preload GLB on mount
         useGLTF.preload(glbPath)

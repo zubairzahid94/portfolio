@@ -1,11 +1,9 @@
 "use client"
 
+
 import { motion } from "framer-motion"
 import Scroll3DTitle from "../videolevitating/scroll-3d-title"
-import LevitatingVideoCard from "../videolevitating/levitating-video-card"
-
-// Color system: primary cyan accent with neutral black/white/gray
-// Typography: default Geist, bold headlines via classes
+import FullBleedVideo from "../videolevitating/full-bleed-video"
 
 const SECTIONS = [
     {
@@ -13,23 +11,23 @@ const SECTIONS = [
         title: "3D Designing",
         eyebrow: "Immersive • Materials • Lighting",
         kicker: "We craft atmospheres and mood with realistic lighting, shadows, and cinematic composition.",
-        video: "/videos/3d-designing.mp4", // Replace with your actual file
-        layout: "text-left", // text on left, video right
+        video: "/videos/test.mp4",
+        layout: "text-left",
     },
     {
         id: "model-designing",
         title: "Model Designing",
         eyebrow: "Topology • Detail • Precision",
         kicker: "Clean meshes and striking silhouettes built for performance and visual fidelity.",
-        video: "/videos/model-designing.mp4",
-        layout: "text-right", // text on right, video left
+        video: "/videos/test.mp4",
+        layout: "text-right",
     },
     {
         id: "video-editing",
         title: "Video Editing",
         eyebrow: "Rhythm • Story • Emotion",
         kicker: "Pacing, transitions, and sound design come together to tell a compelling story.",
-        video: "/videos/video-editing.mp4",
+        video: "/videos/test.mp4",
         layout: "text-left",
     },
 ] as const
@@ -45,54 +43,50 @@ export default function PortfolioShowcasePage() {
             {SECTIONS.map((s, i) => {
                 const isRightText = s.layout === "text-right"
                 return (
-                    <section key={s.id} className="relative min-h-screen w-full" aria-labelledby={`${s.id}-title`}>
-                        <div className="container mx-auto h-screen px-6 sm:px-10 lg:px-14">
-                            <div className="grid h-full grid-cols-1 items-center gap-6 lg:gap-12 md:grid-cols-2 overflow-visible">
-                                {/* Text */}
+                    <section
+                        key={s.id}
+                        className="relative flex min-h-screen w-full items-center"
+                        aria-labelledby={`${s.id}-title`}
+                    >
+                        <div className="container mx-auto h-screen max-w-[1920px] px-4 md:px-8 lg:px-12">
+                            <div className="flex h-full flex-col lg:flex-row items-center gap-8 lg:gap-12 xl:gap-16">
+                                {/* Text Half */}
                                 <motion.div
-                                    className={
-                                        isRightText
-                                            ? // text on right → overlap inward from the right
-                                            "order-2 md:order-2 md:-ml-24 lg:-ml-32 z-20 pointer-events-none"
-                                            : // text on left → overlap inward from the left
-                                            "order-1 md:-mr-24 lg:-mr-32 z-20 pointer-events-none"
-                                    }
+                                    className={`flex items-center justify-center w-full lg:w-[42%]
+                    ${isRightText ? "lg:order-2" : "lg:order-1"}
+                  `}
                                     initial={{ opacity: 0, x: isRightText ? 60 : -60 }}
                                     whileInView={{ opacity: 1, x: 0 }}
-                                    viewport={{ once: true, amount: 0.4 }}
-                                    transition={{ duration: 0.7, ease: "easeOut" }}
+                                    viewport={{ once: true, amount: 0.3 }}
+                                    transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
                                 >
-                                    <div id={`${s.id}-title`}>
+                                    <div id={`${s.id}-title`} className="w-full">
                                         <Scroll3DTitle
                                             title={s.title}
                                             eyebrow={s.eyebrow}
                                             kicker={s.kicker}
                                             align={isRightText ? "right" : "left"}
-                                            className="max-w-none"
                                         />
                                     </div>
                                 </motion.div>
 
-                                {/* Video Card */}
                                 <motion.div
-                                    className={isRightText ? "order-1 md:order-1 z-10" : "order-2 z-10"}
-                                    initial={{ opacity: 0, x: isRightText ? -60 : 60, scale: 0.98 }}
-                                    whileInView={{ opacity: 1, x: 0, scale: 1 }}
-                                    viewport={{ once: true, amount: 0.4 }}
-                                    transition={{ duration: 0.7, ease: "easeOut" }}
+                                    className={`relative w-full lg:w-[58%] h-[50vh] sm:h-[60vh] lg:h-[75vh] xl:h-[80vh]
+                    ${isRightText ? "lg:order-1" : "lg:order-2"}
+                  `}
+                                    initial={{ opacity: 0, x: isRightText ? -60 : 60 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    viewport={{ once: true, amount: 0.3 }}
+                                    transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
                                 >
-                                    <LevitatingVideoCard
-                                        src={s.video}
-                                        label={i === 0 ? "3D Designing" : i === 1 ? "Model Designing" : "Video Editing"}
-                                        className={isRightText ? "md:translate-x-4" : "md:-translate-x-4"}
-                                    />
+                                    <FullBleedVideo src={s.video} label={s.title} className="h-full" />
                                 </motion.div>
                             </div>
                         </div>
 
-                        {/* Divider aura to create cinematic transitions between sections */}
+                        {/* Cinematic transition gradient between sections */}
                         {i < SECTIONS.length - 1 ? (
-                            <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-black" />
+                            <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent via-black/50 to-black" />
                         ) : null}
                     </section>
                 )
