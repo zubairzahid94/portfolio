@@ -68,14 +68,14 @@ const AllProjects: React.FC = () => {
                             ))}
                         </div>
 
-                        <div className="mt-32 text-center">
+                        {/* <div className="mt-32 text-center">
                             <p className="text-zinc-500 text-lg mb-8">
                                 Interested in working together?
                             </p>
                             <button className="px-8 py-4 bg-white text-black rounded-full font-semibold text-lg hover:bg-zinc-100 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-white/20">
                                 Get in Touch
                             </button>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>

@@ -134,7 +134,7 @@ export const MorphingBlob: React.FC = () => {
 
       <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6">
         <h1 className="text-white text-7xl md:text-8xl lg:text-9xl font-bold mb-6 tracking-tight">
-          All Projects
+          Our Work
         </h1>
         <p className="text-zinc-300 text-xl md:text-2xl lg:text-3xl max-w-4xl leading-relaxed">
           A collection of work pushing the boundaries of design,<br />technology, and human experience.

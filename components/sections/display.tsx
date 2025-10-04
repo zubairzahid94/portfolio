@@ -3,7 +3,7 @@ import CircularGallery from "../animations/CircularGallery"
 
 const Display = () => {
     return (
-        <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/20">
+        <div id="services" className="min-h-screen bg-gradient-to-br from-background via-background to-muted/20">
             <div className="relative z-10 pt-16 pb-8">
                 <div className="text-center">
                     <h1 className="font-playfair text-6xl md:text-8xl font-bold text-foreground mb-4 tracking-tight">Projects</h1>

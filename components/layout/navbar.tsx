@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react"
 import { Menu, X } from "lucide-react"
 import { gsap } from "gsap"
+import { usePathname, useRouter } from "next/navigation"
 
 interface NavItem {
   label: string
@@ -11,8 +12,9 @@ interface NavItem {
 
 const NAVIGATION: NavItem[] = [
   { label: "Home", href: "#home" },
+  { label: "Work", href: "#work" },
   { label: "Services", href: "#services" },
-  { label: "About", href: "#about" },
+  { label: "Process", href: "#process" },
   { label: "Contact", href: "#contact" }
 ]
 
@@ -22,6 +24,10 @@ export default function Navbar() {
   const [lastScrollY, setLastScrollY] = useState<number>(0)
   const [isVisible, setIsVisible] = useState<boolean>(true)
   const [activeSection, setActiveSection] = useState<string>("#home")
+
+  // For routing
+  const router = useRouter()
+  const pathname = usePathname()
 
   const navRef = useRef<HTMLElement | null>(null)
   const logoRef = useRef<HTMLDivElement | null>(null)
@@ -158,6 +164,14 @@ export default function Navbar() {
 
   const handleNavClick = (href: string): void => {
     setIsOpen(false)
+
+    if (pathname !== "/") {
+      // Navigate to home with hash (so it scrolls after navigation)
+      router.push(`/${href}`)
+      return
+    }
+
+    // Already on home page — scroll smoothly
     const element = document.querySelector(href)
     if (element) {
       element.scrollIntoView({ behavior: "smooth" })

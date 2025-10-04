@@ -36,7 +36,7 @@ const SECTIONS = [
 
 export default function PortfolioShowcasePage() {
     return (
-        <main className="bg-black text-white">
+        <main id="work" className="bg-black text-white">
             {/* Global background accent */}
             <div className="pointer-events-none fixed inset-0 -z-10">
                 <div className="absolute -top-40 left-1/2 h-[60vh] w-[60vw] -translate-x-1/2 rounded-full bg-cyan-500/10 blur-3xl" />
