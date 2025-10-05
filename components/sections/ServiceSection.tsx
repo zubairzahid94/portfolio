@@ -1,7 +1,7 @@
 'use client'
 import CircularGallery from "../animations/CircularGallery"
 
-const Display = () => {
+const ServicesSection = () => {
     // Define services with images and descriptions
     const services = [
         {
@@ -82,4 +82,4 @@ const Display = () => {
     )
 }
 
-export default Display
+export default ServicesSection
