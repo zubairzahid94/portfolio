@@ -1,0 +1,14 @@
+{
+  "$schema": "https://unpkg.com/knip@latest/schema.json",
+  "entry": [
+    "next.config.js",
+    "src/pages/**/*.tsx",
+    "src/app/**/*.tsx",
+    "src/components/**/*.tsx",
+    "src/components/*.tsx",
+
+    "src/lib/**/*.ts"
+  ],
+  "ignore": ["next-env.d.ts", "postcss.config.js", "tailwind.config.js"],
+  "ignoreDependencies": ["next", "react", "react-dom"]
+}
