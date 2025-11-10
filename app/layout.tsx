@@ -8,7 +8,7 @@ import { Suspense } from "react"
 import ScrollProvider from "@/components/animations/scroll-provider"
 
 export const metadata: Metadata = {
-  title: "Portfolio - Creative Digital Experiences",
+  title: "Vexamotion - Creative Digital Experiences",
   description:
     "Premium digital experiences and creative solutions crafted with innovative design and cutting-edge technology.",
   generator: "v0.app",
